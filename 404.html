@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>404 - Page Not Found</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "roboto", sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #fff;
+      color: #000;
+    }
+
+    .wrapper {
+      text-align: center;
+    }
+
+    /* OOPS text with image inside */
+    .oops {
+      font-size: 220px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      background: url("assets/img/healing\ 404.webp") center center/cover no-repeat;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .title {
+      font-size: 28px;
+      font-weight: 600;
+      margin-top: 10px;
+      letter-spacing: 1px;
+    }
+
+    .desc {
+      font-size: 18px;
+      color: #2a2a2a;
+      margin: 12px 0 30px;
+      /* max-width: 420px; */
+      line-height: 1.6;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 30px;
+      background: #198754;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 30px;
+      font-size: 14px;
+      font-weight: 600;
+      box-shadow: 0 8px 20px #1987548e;
+      transition: 0.3s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 25px rgba(30,79,255,0.4);
+    }
+
+    @media (max-width: 600px) {
+      .oops {
+        font-size: 90px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="wrapper">
+    <div class="oops">Oops!</div>
+    <div class="title">404 - PAGE NOT FOUND</div>
+    <p class="desc">
+      The page you are looking for might have been removed,
+      had its name changed or is temporarily unavailable.
+    </p>
+    <a href="/" class="btn">GO TO HOMEPAGE</a>
+  </div>
+
+</body>
+</html>
