@@ -236,7 +236,7 @@ h6 {
 .header {
   color: var(--default-color);
   background-color: var(--background-color);
-  padding: 20px 0;
+  padding: 10px 0;
   transition: all 0.5s;
   z-index: 997;
   border-bottom: 1px solid color-mix(in srgb, var(--accent-color), transparent 85%);
@@ -247,7 +247,7 @@ h6 {
 }
 
 .header .logo img {
-  max-height: 36px;
+  /* max-height: 36px; */
   margin-right: 8px;
 }
 
@@ -320,7 +320,7 @@ h6 {
   .navmenu a,
   .navmenu a:focus {
     color: var(--nav-color);
-    padding: 18px 15px;
+    padding: 0 15px;
     font-size: 16px;
     font-family: var(--nav-font);
     font-weight: 400;
@@ -560,11 +560,11 @@ h6 {
 
 .footer .footer-about .logo {
   line-height: 1;
-  margin-bottom: 25px;
+  margin-bottom: 15px;
 }
 
 .footer .footer-about .logo img {
-  max-height: 40px;
+  /* max-height: 40px; */
   margin-right: 6px;
 }
 
@@ -838,7 +838,6 @@ section,
   position: relative;
   height: 50vh;
   overflow: hidden;
-
 }
 
 #hero .carousel,
@@ -861,7 +860,7 @@ section,
 }
 
 .carousel-item {
-  transition: opacity 2s ease-in-out;
+  transition: opacity  ease-in-out;
   /* default Bootstrap se zyada smooth */
 }
 
@@ -2001,6 +2000,16 @@ section,
   }
 }
 
+
+
+/*--------------------------------------------------------------
+# Portfolio Details Section
+--------------------------------------------------------------*/  
+#map{
+  width:100%; border-radius:20px; overflow:hidden;
+}
+#map iframe{
+   border-radius:20px;}
 /*--------------------------------------------------------------
 # Portfolio Details Section
 --------------------------------------------------------------*/
@@ -2860,7 +2869,7 @@ section,
 .carousel-item .carousel-content {
   opacity: 0;
   transform: translateY(50px) scale(0.95);
-  filter: blur(5px);
+  /* filter: blur(5px); */
 }
 
 .carousel-item.active .carousel-content {
