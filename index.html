@@ -168,7 +168,9 @@
 
       <!-- <img src="assets/img/hero-bg-abstract.jpg"  loading="lazy" alt="" data-aos="fade-in" class=""> -->
       <div id="autoCarousel" class="carousel slide hero-carousel" data-bs-ride="carousel" data-bs-interval="4000"
-        data-bs-pause="false">
+        data-bs-ride="carousel" 
+     data-bs-interval="4000"
+     data-bs-pause="hover">
         <!-- Carousel Indicators -->
         <div class="carousel-indicators">
           <button type="button" data-bs-target="#autoCarousel" data-bs-slide-to="0" class="active" aria-current="true"
@@ -480,14 +482,15 @@
               </li>
             </ul>
 
+
+          </div>
+
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
             <p>If this feels familiar, you’re not alone. Healing Site is here to provide a safe space where
               your feelings are understood, and support is always available — a place where you can
               pause, breathe, and take small steps toward clarity and balance.
             </p>
-          </div>
-
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
-            <p><strong>How We Help</strong><br></p>
+            <p style="margin-top: 40px;"><strong>How We Help</strong><br></p>
             <p>At Healing Site, we don’t believe in fixed formulas or rushed solutions. We take time to
               understand you—your story, your emotions, and what you truly need support with. Every
               session is shaped around your pace, your comfort, and your goals, creating a space where
@@ -503,7 +506,7 @@
             </p>
 
 
-            <div id="moreContent" style="display: none;">
+            <!-- <div id="moreContent" style="display: none;">
               <p><strong>Sessions We Offer</strong><br></p>
               <ul>
                 <li><i class="bi bi-check2-all"></i> <span>Personal Counselling </span> </li>
@@ -527,10 +530,10 @@
 
 
               </ul>
-            </div>
-            <a href="javascript:void(0);" class="read-more bg-success" onclick="toggleReadMore()">
+            </div> -->
+            <!-- <a href="javascript:void(0);" class="read-more bg-success" onclick="toggleReadMore()">
               <span id="toggleText">Read More</span> <i class="bi bi-arrow-right"></i>
-            </a>
+            </a> -->
           </div>
         </div>
       </div>
@@ -893,8 +896,10 @@
                     <div class="col-md-6">
                       <label for="datetime" class="form-label fw-medium">Preferred Date & Time <span
                           class="text-danger">*</span></label>
-                      <input type="datetime-local" id="datetime" name="datetime" placeholder="Select Date"
-                        class="form-control" required>
+                      <input type="date" id="datetime" name="datetime" placeholder="MM/DD/YYYY" class="form-control"
+                        required>
+
+                         
                     </div>
 
                     <!-- Type of Service Dropdown -->
@@ -1395,6 +1400,7 @@
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       flatpickr("#datetime", {
+        wrap: true, 
         enableTime: true,
         dateFormat: "Y-m-d H:i",
       });
@@ -1542,7 +1548,7 @@
         const carousel = new bootstrap.Carousel(carouselElement, {
           interval: 4000,
           ride: 'carousel',
-          pause: false
+          pause: true
         });
 
         let progressInterval;
