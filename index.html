@@ -150,9 +150,11 @@
           <li><a href="#hero" class="active">Home<br></a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#services">Services</a></li>
-          <li><a href="#contact">Contact</a></li>
-          <li></li>
+          <!-- <li><a href="#contact">Contact</a></li> -->
+          <li> <a class="btn-getstarted bg-success" href="#contact">Contact</a>
+          </li>
         </ul>
+
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
       <a class="btn-getstarted bg-success" href="#Booking">Book a session</a>
@@ -168,9 +170,7 @@
 
       <!-- <img src="assets/img/hero-bg-abstract.jpg"  loading="lazy" alt="" data-aos="fade-in" class=""> -->
       <div id="autoCarousel" class="carousel slide hero-carousel" data-bs-ride="carousel" data-bs-interval="4000"
-        data-bs-ride="carousel" 
-     data-bs-interval="4000"
-     data-bs-pause="hover">
+        data-bs-ride="carousel" data-bs-interval="4000" data-bs-pause="hover">
         <!-- Carousel Indicators -->
         <div class="carousel-indicators">
           <button type="button" data-bs-target="#autoCarousel" data-bs-slide-to="0" class="active" aria-current="true"
@@ -411,8 +411,8 @@
     <section id="about" class="about section ">
 
       <div class="container section-title" data-aos="fade-up">
-        <h2>About Us<br></h2>
-        <p>Welcome to my platform, where growth, healing, and empowerment meet.</p>
+        <h2>A Space That Understands You<br></h2>
+        <!-- <p>Welcome to my platform, where growth, healing, and empowerment meet.</p> -->
       </div>
 
       <div class="container">
@@ -420,7 +420,7 @@
         <div class="row gy-4">
 
           <div class="col-lg-6 content" data-aos="fade-up" data-aos-delay="100">
-            <p><strong>A Space That Understands You</strong> </p>
+            <!-- <p><strong>A Space That Understands You</strong> </p> -->
 
             <p>
               Sometimes, life becomes overwhelming — even when we don’t show it from outside. At
@@ -899,7 +899,7 @@
                       <input type="date" id="datetime" name="datetime" placeholder="MM/DD/YYYY" class="form-control"
                         required>
 
-                         
+
                     </div>
 
                     <!-- Type of Service Dropdown -->
@@ -1399,7 +1399,7 @@
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       flatpickr("#datetime", {
-        wrap: true, 
+        wrap: true,
         enableTime: true,
         dateFormat: "Y-m-d H:i",
       });
@@ -1707,26 +1707,26 @@
       }
     });
   </script>
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const faqItems = document.querySelectorAll(".faq-item");
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const faqItems = document.querySelectorAll(".faq-item");
 
-    faqItems.forEach((item) => {
-      item.addEventListener("click", () => {
-        
-        // Close all other items
-        faqItems.forEach((faq) => {
-          if (faq !== item) {
-            faq.classList.remove("faq-active");
-          }
+      faqItems.forEach((item) => {
+        item.addEventListener("click", () => {
+
+          // Close all other items
+          faqItems.forEach((faq) => {
+            if (faq !== item) {
+              faq.classList.remove("faq-active");
+            }
+          });
+
+          // Toggle current item
+          item.classList.toggle("faq-active");
         });
-
-        // Toggle current item
-        item.classList.toggle("faq-active");
       });
     });
-  });
-</script>
+  </script>
 
 
 </body>
