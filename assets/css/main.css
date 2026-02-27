@@ -2882,13 +2882,13 @@ section,
   0% {
     opacity: 0;
     transform: translateY(50px) scale(0.95);
-    filter: blur(5px);
+    /* filter: blur(5px); */
   }
 
   60% {
     opacity: 0.8;
     transform: translateY(-10px) scale(1.02);
-    filter: blur(2px);
+    /* filter: blur(2px); */
   }
 
   100% {
