@@ -1962,6 +1962,9 @@ section,
 
 
 }
+.about-image{
+  max-height: 550px; object-fit: cover;
+}
 
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
@@ -1982,12 +1985,18 @@ section,
   .booking-image-container img {
     max-height: 300px !important;
   }
+  .about-image, .about-image-1{
+    width: 100%;
+    object-fit: cover;
+    height: 100%;
+  }
+  
 }
 
 @media (max-width: 576px) {
   .booking-form-container {
     padding: 1.5rem !important;
-    margin: 0 0.5rem;
+    /* margin: 0 0.5rem; */
   }
 
   .booking-form-container h3 {
@@ -1996,7 +2005,8 @@ section,
 
   .booking-form-container .btn {
     width: 100%;
-    padding: 15px 20px;
+    padding: 15px 10px;
+    font-size: 16px;
   }
 }
 
