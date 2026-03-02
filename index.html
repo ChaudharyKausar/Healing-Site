@@ -84,9 +84,9 @@
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-  <link rel="preload" href="assets/vendor/glightbox/css/glightbox.min.css" as="style"
-    onload="this.onload=null;this.rel='stylesheet'">
+  <link href="assets/css/main.css" rel="stylesheet">
   <noscript>
     <link rel="stylesheet" href="assets/vendor/glightbox/css/glightbox.min.css">
   </noscript>
@@ -224,9 +224,9 @@
                       <p class="carousel-subtitle">Every conversation here is a step toward peace, clarity, and feeling
                         like yourself again.
                       <div class="carousel-cta">
-                        <a href="#services" class="btn carousel-btn">Book Your Free Consultation Now</a>
+                        <a href="#Booking" class="btn carousel-btn">Book Your Free Consultation Now</a>
                         <a href="#"
-                          onclick="window.open(`https://chaudharykausar.github.io/Healing-Site/`, '_blank'); return false;"
+                          onclick="window.open(`https://healingsite.idreamcareer.com/`, '_blank'); return false;"
                           class="btn btn-outline-light carousel-btn-secondary">
                           Career Guidance
                         </a>
@@ -894,7 +894,7 @@
                 style="background: #ffffff; border: 1px solid #e9ecef;">
                 <h3 class="text-center mb-4" style="color: #124265; font-weight: 600;">Your journey begins with a simple
                   conversation</h3>
-                <form id="contact-form">
+                <form id="contact-form" action="send-mail-phpmailer.php" method="POST">
                   <div class="row gy-3">
                     <!-- Name & Email in One Row -->
                     <div class="col-md-6">
@@ -1088,9 +1088,9 @@
 
 
     <!-- Faq Section -->
-    <section id="faq" class="faq section light-background">
+    <section id="faq" class="faq section light-background mt-2">
 
-      <div class="container section-title" data-aos="fade-up">
+      <div class="container section-title" data-aos="fade-up" style="margin-bottom: -40px;">
         <h2>Frequently Asked Questions</h2>
 
       </div>
@@ -1218,10 +1218,10 @@
 
 
     <!-- Contact Section -->
-    <section id="contact" class="contact section">
+    <section id="contact" class="contact section mt-4">
 
       <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
+      <div class="container section-title" data-aos="fade-up" style="margin: 20px 0 -40px;">
         <h2>Contact</h2>
         <!--<p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>-->
       </div><!-- End Section Title -->
@@ -1335,13 +1335,8 @@
     <div class="container footer-top">
       <div class="row gy-4">
         <div class="col-lg-5 col-md-12 footer-about">
-          <!-- <a href="index.html" class="logo d-flex align-items-center">
-            <span class="sitename">Healing-Site</span>
-          </a> -->
-          <a href="index.html" class="logo d-flex align-items-center me-auto">
-            <!-- Uncomment the line below if you also wish to use an image logo -->
+          <a href="index.html" class="logo d-flex align-items-center justify-content-center">
             <img src="assets/img1/logo img.png" loading="lazy" alt="logo" height="120px" width="auto">
-            <!-- <h1 class="sitename">Healing Site</h1> -->
           </a>
           <p>Heal. Grow. Thrive. Your brighter future starts today.<br>
             Find clarity in life and career. Empower yourself to succeed.<br>
@@ -1527,32 +1522,52 @@
 
 
   <script>
-    (function () {
-      emailjs.init("uCOB9kNLcxt0mBBhJ"); // Replace with your EmailJS public key
-    })();
-
     document.getElementById('contact-form').addEventListener('submit', function (event) {
       event.preventDefault(); // Prevent form submission
 
-      // Collect form data
-      let formData = {
-        name: document.getElementById('name').value,
-        email: document.getElementById('email').value,
-        phone: document.getElementById('phone').value,
-        datetime: document.getElementById('datetime').value,
-        service: document.getElementById('service').value,
-        notes: document.getElementById('notes').value
-      };
+      // Show loading state
+      const submitBtn = this.querySelector('button[type="submit"]');
+      const originalText = submitBtn.innerHTML;
+      submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Sending...';
+      submitBtn.disabled = true;
 
-      // Send email using EmailJS
-      emailjs.send("service_kof8ooa", "template_pm7e727", formData)
-        .then(function (response) {
-          alert("Your appointment has been booked successfully!");
+      // Collect form data
+      const formData = new FormData(this);
+
+      // Send email using PHPMailer
+      fetch('send-mail-phpmailer.php', {
+        method: 'POST',
+        body: formData
+      })
+      .then(response => response.json())
+      .then(data => {
+        // Reset button
+        submitBtn.innerHTML = originalText;
+        submitBtn.disabled = false;
+
+        if (data.status === 'success') {
+          // Show success modal
+          const successModal = new bootstrap.Modal(document.getElementById('successModal'));
+          successModal.show();
           document.getElementById('contact-form').reset(); // Clear form
-        }, function (error) {
-          alert("There was an error sending your request. Please try again.");
-          console.error("EmailJS Error:", error);
-        });
+        } else {
+          // Show error modal
+          document.getElementById('errorModalMessage').textContent = data.message;
+          const errorModal = new bootstrap.Modal(document.getElementById('errorModal'));
+          errorModal.show();
+        }
+      })
+      .catch(error => {
+        // Reset button
+        submitBtn.innerHTML = originalText;
+        submitBtn.disabled = false;
+        
+        // Show error modal
+        document.getElementById('errorModalMessage').textContent = 'Network error. Please try again.';
+        const errorModal = new bootstrap.Modal(document.getElementById('errorModal'));
+        errorModal.show();
+        console.error('Error:', error);
+      });
     });
   </script>
 
@@ -1750,6 +1765,53 @@
     });
   </script>
 
+  <!-- Success Modal -->
+  <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header border-0">
+          <h5 class="modal-title" id="successModalLabel">
+            <i class="bi bi-check-circle-fill text-success me-2"></i>Booking Confirmed!
+          </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body text-center py-4">
+          <div class="mb-3">
+            <i class="bi bi-envelope-check text-success" style="font-size: 3rem;"></i>
+          </div>
+          <h4 class="text-success">Thank You!</h4>
+          <p class="mb-0">Your booking request has been sent successfully. We'll contact you soon to confirm your appointment.</p>
+        </div>
+        <div class="modal-footer border-0 justify-content-center">
+          <button type="button" class="btn btn-success" data-bs-dismiss="modal">Got it!</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Error Modal -->
+  <div class="modal fade" id="errorModal" tabindex="-1" aria-labelledby="errorModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header border-0">
+          <h5 class="modal-title" id="errorModalLabel">
+            <i class="bi bi-exclamation-triangle-fill text-danger me-2"></i>Oops!
+          </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body text-center py-4">
+          <div class="mb-3">
+            <i class="bi bi-x-circle text-danger" style="font-size: 3rem;"></i>
+          </div>
+          <h4 class="text-danger">Something went wrong</h4>
+          <p class="mb-0" id="errorModalMessage">Please try again later.</p>
+        </div>
+        <div class="modal-footer border-0 justify-content-center">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
 </body>
 

@@ -1983,7 +1983,7 @@ section,
   }
 
   .booking-image-container img {
-    max-height: 300px !important;
+    max-height: 400px !important;
   }
   .about-image, .about-image-1{
     width: 100%;
@@ -2822,8 +2822,9 @@ section,
   }
 
   .carousel-btn {
-    padding: 0.8rem 1.3rem;
-    font-size: 0.85rem;
+    padding: 0.8rem 0.8rem;
+    font-size: 0.75rem;
+    /* display: none; */
     min-width: 140px;
     width: 85%;
     letter-spacing: 0.5px;
@@ -2852,11 +2853,13 @@ section,
   }
 
   .carousel-control-prev {
-    left: 15px;
+    left: 10px;
+    display: none;
   }
 
   .carousel-control-next {
-    right: 15px;
+    right: 10px;
+    display: none;
   }
 
   .carousel-control-prev-icon,
