@@ -38,6 +38,18 @@
       /* subtle zoom */
     }
 
+    /* Responsive footer centering */
+    @media (max-width: 768px) {
+      .footer-about {
+        text-align: center !important;
+      }
+      .footer-about .logo {
+        justify-content: center !important;
+      }
+      .footer-about .social-links {
+        justify-content: center !important;
+      }
+    }
 
     @keyframes float {
       0% {
@@ -835,11 +847,10 @@
 
     <section class="founder-note py-5">
       <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-lg-10 col-xl-8 text-center">
-
-            <h2 class="mb-4 fw-semibold">Founder’s Note – Afreen’s Story</h2>
-
+        <div class="row align-items-center">
+          <!-- Content on Left -->
+          <div class="col-lg-6 mb-4 mb-lg-0">
+            <h2 class="mb-4 fw-semibold">Founder's Note – Afreen's Story</h2>
             <p class="text-muted">
               HealingSite was created from years of learning, observing, and understanding people.
               I began my professional journey in the field of science, working as a Research Fellow
@@ -847,7 +858,6 @@
               while teaching brought me close to people—their stress, self-doubt, academic pressure,
               career confusion, and emotional struggles that often remained unspoken.
             </p>
-
             <p class="text-muted">
               Over time, I met individuals from different backgrounds and phases of life who appeared
               capable and strong on the outside, yet felt overwhelmed within. Many were carrying stress,
@@ -855,21 +865,24 @@
               relationships, decisions, and sense of self. Often, what felt like a practical problem was
               rooted in emotional imbalance or a lack of clarity.
             </p>
-
             <p class="text-muted">
               HealingSite was founded to create a thoughtful, safe, and ethical space where mental health
               and career clarity are addressed together. My aim was never to offer quick solutions, but
               to support individuals in understanding themselves better, processing their emotions, and
               making informed decisions at their own pace.
             </p>
-
             <p class="text-muted">
               For me, healing is not about changing who you are—it is about understanding yourself,
               building resilience, and moving forward with clarity, balance, and confidence.
             </p>
-
             <p class="fw-semibold mt-4">— Afreen Shaikh</p>
-
+          </div>
+          <!-- Image on Right -->
+          <div class="col-lg-6">
+            <div class="founder-image text-center">
+              <img src="assets/img/Afreen-story.jpeg" class="img-fluid custom-img rounded shadow" loading="lazy"
+                alt="Afreen Shaikh" style="max-height: 500px; object-fit: cover;">
+            </div>
           </div>
         </div>
       </div>
@@ -972,8 +985,8 @@
             <!-- Image Section -->
             <div class="col-lg-6 col-md-8 col-12">
               <div class="booking-image-container text-center">
-                <img src="assets/img/services.jpg" class="img-fluid custom-img rounded shadow" loading="lazy"
-                  alt="Healing Services" style="max-height: 800px; object-fit: cover;">
+                <img src="assets/img/book-a-session.jpeg" class="img-fluid custom-img rounded shadow" loading="lazy"
+                  alt="Book a Session" style="max-height: 800px; object-fit: cover;">
               </div>
             </div>
           </div>
@@ -1335,7 +1348,7 @@
     <div class="container footer-top">
       <div class="row gy-4">
         <div class="col-lg-5 col-md-12 footer-about">
-          <a href="index.html" class="logo d-flex align-items-center justify-content-center">
+          <a href="index.html" class="logo d-flex align-items-center">
             <img src="assets/img1/logo img.png" loading="lazy" alt="logo" height="120px" width="auto">
           </a>
           <p>Heal. Grow. Thrive. Your brighter future starts today.<br>
