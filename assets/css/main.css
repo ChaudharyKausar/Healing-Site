@@ -668,6 +668,18 @@ h6 {
   color: color-mix(in srgb, var(--contrast-color), transparent 30%);
 }
 
+    /* Responsive footer centering */
+    @media (max-width: 768px) {
+      .footer-about {
+        text-align: center !important;
+      }
+      .footer-about .logo {
+        justify-content: center !important;
+      }
+      .footer-about .social-links {
+        justify-content: center !important;
+      }
+    }
 /*--------------------------------------------------------------
 # Preloader
 --------------------------------------------------------------*/

@@ -22,16 +22,16 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     try {
         // Server settings
         $mail->isSMTP();                                    // Send using SMTP
-        $mail->Host       = 'smtp.hostinger.com';           // Set the SMTP server to send through
+        $mail->Host       = 'smtp.gmail.com';               // Set the SMTP server to send through
         $mail->SMTPAuth   = true;                           // Enable SMTP authentication
-        $mail->Username   = 'contact@healingsite.in';       // SMTP username (your Hostinger email)
-        $mail->Password   = 'Shaikh@#321';      // Your Hostinger email password
+        $mail->Username   = 'choudharykausar25@gmail.com';         // SMTP username (your Gmail)
+        $mail->Password   = 'Kausar@2005';            // Your regular Gmail password
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;    // Enable implicit TLS encryption
         $mail->Port       = 465;                            // TCP port to connect to
 
         // Recipients
-        $mail->setFrom('contact@healingsite.in', 'Healing Website');
-        $mail->addAddress('contact@healingsite.in', 'Healing Site');     // Add a recipient
+        $mail->setFrom('choudharykausar2005@gmail.com', 'Healing Website');
+        $mail->addAddress('choudharykausar2005@gmail.com', 'Kausar Choudhary');     // Add a recipient
         $mail->addReplyTo($email, $name);                   // Reply to the user's email
 
         // Content
